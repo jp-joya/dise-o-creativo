@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baraja Sci-Fi: Colección Exótica</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            background-color: #030008;
+            margin: 0;
+            padding: 40px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 80px;
+            font-family: 'Rajdhani', sans-serif;
+            color: #fff;
+        }
+
+        /* Contenedor de la Diapositiva */
+        .slide {
+            width: 1200px;
+            height: 750px;
+            background: linear-gradient(135deg, #050010 0%, #10002b 100%);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px;
+            position: relative;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 0, 255, 0.2);
+            box-shadow: 0 0 100px rgba(0, 0, 0, 0.8);
+        }
+
+        /* DISEÑO DE LA CARTA EXÓTICA */
+        .playing-card {
+            width: 420px;
+            height: 620px;
+            background: #000;
+            border-radius: 25px;
+            border: 3px solid #ff00ff;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 0 30px rgba(255, 0, 255, 0.4), inset 0 0 50px rgba(0, 242, 255, 0.2);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        /* Nombre completo en las esquinas */
+        .card-name-tag {
+            position: absolute;
+            font-family: 'Orbitron', sans-serif;
+            color: #ff00ff;
+            font-size: 14px;
+            letter-spacing: 2px;
+            font-weight: 700;
+            text-transform: uppercase;
+            z-index: 10;
+        }
+        .tag-top { top: 20px; left: 20px; writing-mode: vertical-rl; text-orientation: mixed; transform: rotate(180deg); }
+        .tag-bottom { bottom: 20px; right: 20px; writing-mode: vertical-rl; text-orientation: mixed; }
+
+        /* Arte Central Exótico */
+        .art-frame {
+            position: absolute;
+            top: 20px;
+            left: 50px;
+            right: 50px;
+            bottom: 20px;
+            border: 1px solid rgba(0, 242, 255, 0.3);
+            border-radius: 15px;
+            overflow: hidden;
+            background: #050505;
+        }
+
+        .art-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: saturate(1.5) contrast(1.1) brightness(1.2);
+        }
+
+        /* Overlay de Energía */
+        .energy-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, transparent 0%, rgba(255, 0, 255, 0.1) 100%);
+            pointer-events: none;
+        }
+
+        /* Info de la Diapositiva */
+        .slide-info {
+            width: 550px;
+        }
+
+        .slide-info h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 54px;
+            color: #00f2ff;
+            margin-bottom: 25px;
+            text-shadow: 0 0 15px rgba(0, 242, 255, 0.6);
+        }
+
+        .slide-info p {
+            font-size: 26px;
+            line-height: 1.4;
+            color: #e0aaff;
+            margin-bottom: 40px;
+        }
+
+        .data-panel {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .data-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-bottom: 2px solid #ff00ff;
+        }
+
+        .data-item label { display: block; font-size: 14px; color: #ff00ff; text-transform: uppercase; margin-bottom: 5px; }
+        .data-item span { font-size: 20px; font-weight: bold; color: #fff; }
+
+    </style>
+</head>
+<body>
+
+<!-- DIAPOSITIVA: ASTRONAUTA (VALOR 1) -->
+<div class="slide">
+    <div class="playing-card">
+        <div class="card-name-tag tag-top">Astronauta</div>
+        <div class="art-frame">
+            <img src="https://img.freepik.com/vector-gratis/astronauta-dabbing-cartoon-vector-icon-illustration-concepto-icono-tecnologia-ciencia-aislado-vector-premium-estilo-dibujos-animados-plana_138676-3360.jpg?semt=ais_user_personalization&w=740&q=80" alt="[Astronauta Cósmico Exótico]">
+            <div class="energy-overlay"></div>
+        </div>
+        <div class="card-name-tag tag-bottom">Astronauta</div>
+    </div>
+    <div class="slide-info">
+        <h2>El Astronauta</h2>
+        <p>Un explorador perdido en las dimensiones del hiperespacio, su traje brilla con energía estelar.</p>
+        <div class="data-panel">
+            <div class="data-item"><label>Valor</label><span>1</span></div>
+        </div>
+    </div>
+</div>
+
+<!-- DIAPOSITIVA: ASTRONAUTA (VALOR 2) -->
+<div class="slide">
+    <div class="playing-card">
+        <div class="card-name-tag tag-top">Astronauta</div>
+        <div class="art-frame">
+            <img src="https://img.freepik.com/vector-gratis/astronauta-dabbing-cartoon-vector-icon-illustration-concepto-icono-tecnologia-ciencia-aislado-vector-premium-estilo-dibujos-animados-plana_138676-3360.jpg?semt=ais_user_personalization&w=740&q=80" alt="[Astronauta Cósmico Exótico]">
+            <div class="energy-overlay"></div>
+        </div>
+        <div class="card-name-tag tag-bottom">Astronauta</div>
+    </div>
+    <div class="slide-info">
+        <h2>El Astronauta</h2>
+        <p>Un explorador perdido en las dimensiones del hiperespacio, su traje brilla con energía estelar.</p>
+        <div class="data-panel">
+            <div class="data-item"><label>Valor</label><span>2</span></div>
+        </div>
+    </div>
+</div>
+
+<!-- DIAPOSITIVA: ASTRONAUTA (VALOR 3) -->
+<div class="slide">
+    <div class="playing-card">
+        <div class="card-name-tag tag-top">Astronauta</div>
+        <div class="art-frame">
+            <img src="https://img.freepik.com/vector-gratis/astronauta-dabbing-cartoon-vector-icon-illustration-concepto-icono-tecnologia-ciencia-aislado-vector-premium-estilo-dibujos-animados-plana_138676-3360.jpg?semt=ais_user_personalization&w=740&q=80" alt="[Astronauta Cósmico Exótico]">
+            <div class="energy-overlay"></div>
+        </div>
+        <div class="card-name-tag tag-bottom">Astronauta</div>
+    </div>
+    <div class="slide-info">
+        <h2>El Astronauta</h2>
+        <p>Un explorador perdido en las dimensiones del hiperespacio, su traje brilla con energía estelar.</p>
+        <div class="data-panel">
+            <div class="data-item"><label>Valor</label><span>3</span></div>
+        </div>
+    </div>
+</div>
+
+<!-- DIAPOSITIVA: ASTRONAUTA (VALOR 4) -->
+<div class="slide">
+    <div class="playing-card">
+        <div class="card-name-tag tag-top">Astronauta</div>
+        <div class="art-frame">
+            <img src="https://img.freepik.com/vector-gratis/astronauta-dabbing-cartoon-vector-icon-illustration-concepto-icono-tecnologia-ciencia-aislado-vector-premium-estilo-dibujos-animados-plana_138676-3360.jpg?semt=ais_user_personalization&w=740&q=80" alt="[Astronauta Cósmico Exótico]">
+            <div class="energy-overlay"></div>
+        </div>
+        <div class="card-name-tag tag-bottom">Astronauta</div>
+    </div>
+    <div class="slide-info">
+        <h2>El Astronauta</h2>
+        <p>Un explorador perdido en las dimensiones del hiperespacio, su traje brilla con energía estelar.</p>
+        <div class="data-panel">
+            <div class="data-item"><label>Valor</label><span>4</span></div>
+        </div>
+    </div>
+</div>
+
+<!-- DIAPOSITIVA: MARCIANO (VALOR 1) -->
+<div class="slide">
+    <div class="playing-card" style="border-color: #00f2ff; box-shadow: 0 0 30px rgba(0, 242, 255, 0.4);">
+        <div class="card-name-tag tag-top" style="color: #00f2ff;">Marciano</div>
+        <div class="art-frame" style="border-color: rgba(255, 0, 255, 0.3);">
+            <img src="https://img.freepik.com/vector-premium/lindo-alienigena-soplando-chicle-capucha-icono-vectorial-dibujos-animados-ilustracion-ciencia-moda-aislado-plano_138676-12193.jpg?semt=ais_user_personalization&w=740&q=80" alt="[Marciano de Estética Exótica]">
+            <div class="energy-overlay" style="background: linear-gradient(to bottom, transparent 0%, rgba(0, 242, 255, 0.1) 100%);"></div>
+        </div>
+        <div class="card-name-tag tag-bottom" style="color: #00f2ff;">Marciano</div>
+    </div>
+    <div class="slide-info">
+        <h2 style="color: #ff00ff; text-shadow: 0 0 15px rgba(255, 0, 255, 0.6);">El Marciano</h2>
+        <p>Una entidad de pura conciencia roja, habitante de los valles de cristal de Marte.</p>
+        <div class="data-panel">
+            <div class="data-item" style="border-color: #00f2ff;"><label>Valor</label><span>1</span></div>
+        </div>
+    </div>
+</div>
+
+<!-- DIAPOSITIVA: MARCIANO (VALOR 2) -->
+<div class="slide">
+    <div class="playing-card" style="border-color: #00f2ff; box-shadow: 0 0 30px rgba(0, 242, 255, 0.4);">
+        <div class="card-name-tag tag-top" style="color: #00f2ff;">Marciano</div>
+        <div class="art-frame" style="border-color: rgba(255, 0, 255, 0.3);">
+            <img src="https://img.freepik.com/vector-premium/lindo-alienigena-soplando-chicle-capucha-icono-vectorial-dibujos-animados-ilustracion-ciencia-moda-aislado-plano_138676-12193.jpg?semt=ais_user_personalization&w=740&q=80" alt="[Marciano de Estética Exótica]">
+            <div class="energy-overlay" style="background: linear-gradient(to bottom, transparent 0%, rgba(0, 242, 255, 0.1) 100%);"></div>
+        </div>
+        <div class="card-name-tag tag-bottom" style="color: #00f2ff;">Marciano</div>
+    </div>
+    <div class="slide-info">
+        <h2 style="color: #ff00ff; text-shadow: 0 0 15px rgba(255, 0, 255, 0.6);">El Marciano</h2>
+        <p>Una entidad de pura conciencia roja, habitante de los valles de cristal de Marte.</p>
+        <div class="data-panel">
+            <div class="data-item" style="border-color: #00f2ff;"><label>Valor</label><span>2</span></div>
+        </div>
+    </div>
+</div>
+
+<!-- DIAPOSITIVA: MARCIANO (VALOR 3) -->
+<div class="slide">
+    <div class="playing-card" style="border-color: #00f2ff; box-shadow: 0 0 30px rgba(0, 242, 255, 0.4);">
+        <div class="card-name-tag tag-top" style="color: #00f2ff;">Marciano</div>
+        <div class="art-frame" style="border-color: rgba(255, 0, 255, 0.3);">
+            <img src="https://img.freepik.com/vector-premium/lindo-alienigena-soplando-chicle-capucha-icono-vectorial-dibujos-animados-ilustracion-ciencia-moda-aislado-plano_138676-12193.jpg?semt=ais_user_personalization&w=740&q=80" alt="[Marciano de Estética Exótica]">
+            <div class="energy-overlay" style="background: linear-gradient(to bottom, transparent 0%, rgba(0, 242, 255, 0.1) 100%);"></div>
+        </div>
+        <div class="card-name-tag tag-bottom" style="color: #00f2ff;">Marciano</div>
+    </div>
+    <div class="slide-info">
+        <h2 style="color: #ff00ff; text-shadow: 0 0 15px rgba(255, 0, 255, 0.6);">El Marciano</h2>
+        <p>Una entidad de pura conciencia roja, habitante de los valles de cristal de Marte.</p>
+        <div class="data-panel">
+            <div class="data-item" style="border-color: #00f2ff;"><label>Valor</label><span>3</span></div>
+        </div>
+    </div>
+</div>
+
+<!-- DIAPOSITIVA: MARCIANO (VALOR 4) -->
+<div class="slide">
+    <div class="playing-card" style="border-color: #00f2ff; box-shadow: 0 0 30px rgba(0, 242, 255, 0.4);">
+        <div class="card-name-tag tag-top" style="color: #00f2ff;">Marciano</div>
+        <div class="art-frame" style="border-color: rgba(255, 0, 255, 0.3);">
+            <img src="https://img.freepik.com/vector-premium/lindo-alienigena-soplando-chicle-capucha-icono-vectorial-dibujos-animados-ilustracion-ciencia-moda-aislado-plano_138676-12193.jpg?semt=ais_user_personalization&w=740&q=80" alt="[Marciano de Estética Exótica]">
+            <div class="energy-overlay" style="background: linear-gradient(to bottom, transparent 0%, rgba(0, 242, 255, 0.1) 100%);"></div>
+        </div>
+        <div class="card-name-tag tag-bottom" style="color: #00f2ff;">Marciano</div>
+    </div>
+    <div class="slide-info">
+        <h2 style="color: #ff00ff; text-shadow: 0 0 15px rgba(255, 0, 255, 0.6);">El Marciano</h2>
+        <p>Una entidad de pura conciencia roja, habitante de los valles de cristal de Marte.</p>
+        <div class="data-panel">
+            <div class="data-item" style="border-color: #00f2ff;"><label>Valor</label><span>4</span></div>
+        </div>
+    </div>
+</div>
+
+<!-- DIAPOSITIVA: ROBOT (VALOR 1) -->
+<div class="slide">
+    <div class="playing-card">
+        <div class="card-name-tag tag-top">Robot</div>
+        <div class="art-frame">
+            <img src="https://pics.craiyon.com/2023-07-28/435dd6f8de94429c83a30fdf70cb4cc0.webp" alt="[Robot de Diseño Avanzado]">
+            <div class="energy-overlay"></div>
+        </div>
+        <div class="card-name-tag tag-bottom">Robot</div>
+    </div>
+    <div class="slide-info">
+        <h2>El Robot</h2>
+        <p>Una estructura orgánica-mecánica con circuitos de luz líquida y procesamiento cuántico.</p>
+        <div class="data-panel">
+            <div class="data-item"><label>Valor</label><span>1</span></div>
+        </div>
+    </div>
+</div>
+
+<!-- DIAPOSITIVA: ROBOT (VALOR 2) -->
+<div class="slide">
+    <div class="playing-card">
+        <div class="card-name-tag tag-top">Robot</div>
+        <div class="art-frame">
+            <img src="https://pics.craiyon.com/2023-07-28/435dd6f8de94429c83a30fdf70cb4cc0.webp" alt="[Robot de Diseño Avanzado]">
+            <div class="energy-overlay"></div>
+        </div>
+        <div class="card-name-tag tag-bottom">Robot</div>
+    </div>
+    <div class="slide-info">
+        <h2>El Robot</h2>
+        <p>Una estructura orgánica-mecánica con circuitos de luz líquida y procesamiento cuántico.</p>
+        <div class="data-panel">
+            <div class="data-item"><label>Valor</label><span>2</span></div>
+        </div>
+    </div>
+</div>
+
+<!-- DIAPOSITIVA: ROBOT (VALOR 3) -->
+<div class="slide">
+    <div class="playing-card">
+        <div class="card-name-tag tag-top">Robot</div>
+        <div class="art-frame">
+            <img src="https://pics.craiyon.com/2023-07-28/435dd6f8de94429c83a30fdf70cb4cc0.webp" alt="[Robot de Diseño Avanzado]">
+            <div class="energy-overlay"></div>
+        </div>
+        <div class="card-name-tag tag-bottom">Robot</div>
+    </div>
+    <div class="slide-info">
+        <h2>El Robot</h2>
+        <p>Una estructura orgánica-mecánica con circuitos de luz líquida y procesamiento cuántico.</p>
+        <div class="data-panel">
+            <div class="data-item"><label>Valor</label><span>3</span></div>
+        </div>
+    </div>
+</div>
+
+<!-- DIAPOSITIVA: ROBOT (VALOR 4) -->
+<div class="slide">
+    <div class="playing-card">
+        <div class="card-name-tag tag-top">Robot</div>
+        <div class="art-frame">
+            <img src="https://pics.craiyon.com/2023-07-28/435dd6f8de94429c83a30fdf70cb4cc0.webp" alt="[Robot de Diseño Avanzado]">
+            <div class="energy-overlay"></div>
+        </div>
+        <div class="card-name-tag tag-bottom">Robot</div>
+    </div>
+    <div class="slide-info">
+        <h2>El Robot</h2>
+        <p>Una estructura orgánica-mecánica con circuitos de luz líquida y procesamiento cuántico.</p>
+        <div class="data-panel">
+            <div class="data-item"><label>Valor</label><span>4</span></div>
+        </div>
+    </div>
+</div>
+
+<!-- DIAPOSITIVA: REPTILIANO (VALOR 1) -->
+<div class="slide">
+    <div class="playing-card" style="border-color: #00f2ff; box-shadow: 0 0 30px rgba(0, 242, 255, 0.4);">
+        <div class="card-name-tag tag-top" style="color: #00f2ff;">Reptiliano</div>
+        <div class="art-frame" style="border-color: rgba(255, 0, 255, 0.3);">
+            <img src="https://static.vecteezy.com/system/resources/previews/024/682/415/non_2x/digital-art-of-a-green-iguana-smoking-a-cigarette-of-a-reptile-cartoon-character-relaxing-vector.jpg" alt="[Entidad Reptiliana Espacial]">
+            <div class="energy-overlay" style="background: linear-gradient(to bottom, transparent 0%, rgba(0, 242, 255, 0.1) 100%);"></div>
+        </div>
+        <div class="card-name-tag tag-bottom" style="color: #00f2ff;">Reptiliano</div>
+    </div>
+    <div class="slide-info">
+        <h2 style="color: #ff00ff; text-shadow: 0 0 15px rgba(255, 0, 255, 0.6);">El Reptiliano</h2>
+        <p>Soberanos de las nebulosas oscuras, con piel de escamas que refractan la luz de estrellas muertas.</p>
+        <div class="data-panel">
+            <div class="data-item" style="border-color: #00f2ff;"><label>Valor</label><span>1</span></div>
+        </div>
+    </div>
+</div>
+
+<!-- DIAPOSITIVA: REPTILIANO (VALOR 2) -->
+<div class="slide">
+    <div class="playing-card" style="border-color: #00f2ff; box-shadow: 0 0 30px rgba(0, 242, 255, 0.4);">
+        <div class="card-name-tag tag-top" style="color: #00f2ff;">Reptiliano</div>
+        <div class="art-frame" style="border-color: rgba(255, 0, 255, 0.3);">
+            <img src="https://static.vecteezy.com/system/resources/previews/024/682/415/non_2x/digital-art-of-a-green-iguana-smoking-a-cigarette-of-a-reptile-cartoon-character-relaxing-vector.jpg" alt="[Entidad Reptiliana Espacial]">
+            <div class="energy-overlay" style="background: linear-gradient(to bottom, transparent 0%, rgba(0, 242, 255, 0.1) 100%);"></div>
+        </div>
+        <div class="card-name-tag tag-bottom" style="color: #00f2ff;">Reptiliano</div>
+    </div>
+    <div class="slide-info">
+        <h2 style="color: #ff00ff; text-shadow: 0 0 15px rgba(255, 0, 255, 0.6);">El Reptiliano</h2>
+        <p>Soberanos de las nebulosas oscuras, con piel de escamas que refractan la luz de estrellas muertas.</p>
+        <div class="data-panel">
+            <div class="data-item" style="border-color: #00f2ff;"><label>Valor</label><span>2</span></div>
+        </div>
+    </div>
+</div>
+
+<!-- DIAPOSITIVA: REPTILIANO (VALOR 3) -->
+<div class="slide">
+    <div class="playing-card" style="border-color: #00f2ff; box-shadow: 0 0 30px rgba(0, 242, 255, 0.4);">
+        <div class="card-name-tag tag-top" style="color: #00f2ff;">Reptiliano</div>
+        <div class="art-frame" style="border-color: rgba(255, 0, 255, 0.3);">
+            <img src="https://static.vecteezy.com/system/resources/previews/024/682/415/non_2x/digital-art-of-a-green-iguana-smoking-a-cigarette-of-a-reptile-cartoon-character-relaxing-vector.jpg" alt="[Entidad Reptiliana Espacial]">
+            <div class="energy-overlay" style="background: linear-gradient(to bottom, transparent 0%, rgba(0, 242, 255, 0.1) 100%);"></div>
+        </div>
+        <div class="card-name-tag tag-bottom" style="color: #00f2ff;">Reptiliano</div>
+    </div>
+    <div class="slide-info">
+        <h2 style="color: #ff00ff; text-shadow: 0 0 15px rgba(255, 0, 255, 0.6);">El Reptiliano</h2>
+        <p>Soberanos de las nebulosas oscuras, con piel de escamas que refractan la luz de estrellas muertas.</p>
+        <div class="data-panel">
+            <div class="data-item" style="border-color: #00f2ff;"><label>Valor</label><span>3</span></div>
+        </div>
+    </div>
+</div>
+
+<!-- DIAPOSITIVA: REPTILIANO (VALOR 4) -->
+<div class="slide">
+    <div class="playing-card" style="border-color: #00f2ff; box-shadow: 0 0 30px rgba(0, 242, 255, 0.4);">
+        <div class="card-name-tag tag-top" style="color: #00f2ff;">Reptiliano</div>
+        <div class="art-frame" style="border-color: rgba(255, 0, 255, 0.3);">
+            <img src="https://static.vecteezy.com/system/resources/previews/024/682/415/non_2x/digital-art-of-a-green-iguana-smoking-a-cigarette-of-a-reptile-cartoon-character-relaxing-vector.jpg" alt="[Entidad Reptiliana Espacial]">
+            <div class="energy-overlay" style="background: linear-gradient(to bottom, transparent 0%, rgba(0, 242, 255, 0.1) 100%);"></div>
+        </div>
+        <div class="card-name-tag tag-bottom" style="color: #00f2ff;">Reptiliano</div>
+    </div>
+    <div class="slide-info">
+        <h2 style="color: #ff00ff; text-shadow: 0 0 15px rgba(255, 0, 255, 0.6);">El Reptiliano</h2>
+        <p>Soberanos de las nebulosas oscuras, con piel de escamas que refractan la luz de estrellas muertas.</p>
+        <div class="data-panel">
+            <div class="data-item" style="border-color: #00f2ff;"><label>Valor</label><span>4</span></div>
+        </div>
+    </div>
+</div>
+
+<!-- DIAPOSITIVA: CYBORG (VALOR 1) -->
+<div class="slide">
+    <div class="playing-card">
+        <div class="card-name-tag tag-top">Cyborg</div>
+        <div class="art-frame">
+            <img src="https://img.freepik.com/vector-premium/hombre-lindo-robot-cyborg-pistola-dibujos-animados-vector-icono-ilustracion-personas-tecnologia-icono-aislado_138676-8083.jpg" alt="[Cyborg Híbrido Futurista]">
+            <div class="energy-overlay"></div>
+        </div>
+        <div class="card-name-tag tag-bottom">Cyborg</div>
+    </div>
+    <div class="slide-info">
+        <h2>El Cyborg</h2>
+        <p>Un ser híbrido entre humano y máquina, con una parte de su cuerpo mejorada cibernéticamente, representando la fusión entre la biología humana y la tecnología avanzada.</p>
+        <div class="data-panel">
+            <div class="data-item"><label>Valor</label><span>1</span></div>
+        </div>
+    </div>
+</div>
+
+<!-- DIAPOSITIVA: CYBORG (VALOR 2) -->
+<div class="slide">
+    <div class="playing-card">
+        <div class="card-name-tag tag-top">Cyborg</div>
+        <div class="art-frame">
+            <img src="https://img.freepik.com/vector-premium/hombre-lindo-robot-cyborg-pistola-dibujos-animados-vector-icono-ilustracion-personas-tecnologia-icono-aislado_138676-8083.jpg" alt="[Cyborg Híbrido Futurista]">
+            <div class="energy-overlay"></div>
+        </div>
+        <div class="card-name-tag tag-bottom">Cyborg</div>
+    </div>
+    <div class="slide-info">
+        <h2>El Cyborg</h2>
+        <p>Un ser híbrido entre humano y máquina, con una parte de su cuerpo mejorada cibernéticamente, representando la fusión entre la biología humana y la tecnología avanzada.</p>
+        <div class="data-panel">
+            <div class="data-item"><label>Valor</label><span>2</span></div>
+        </div>
+    </div>
+</div>
+
+<!-- DIAPOSITIVA: CYBORG (VALOR 3) -->
+<div class="slide">
+    <div class="playing-card">
+        <div class="card-name-tag tag-top">Cyborg</div>
+        <div class="art-frame">
+            <img src="https://img.freepik.com/vector-premium/hombre-lindo-robot-cyborg-pistola-dibujos-animados-vector-icono-ilustracion-personas-tecnologia-icono-aislado_138676-8083.jpg" alt="[Cyborg Híbrido Futurista]">
+            <div class="energy-overlay"></div>
+        </div>
+        <div class="card-name-tag tag-bottom">Cyborg</div>
+    </div>
+    <div class="slide-info">
+        <h2>El Cyborg</h2>
+        <p>Un ser híbrido entre humano y máquina, con una parte de su cuerpo mejorada cibernéticamente, representando la fusión entre la biología humana y la tecnología avanzada.</p>
+        <div class="data-panel">
+            <div class="data-item"><label>Valor</label><span>3</span></div>
+        </div>
+    </div>
+</div>
+
+<!-- DIAPOSITIVA: CYBORG (VALOR 4) -->
+<div class="slide">
+    <div class="playing-card">
+        <div class="card-name-tag tag-top">Cyborg</div>
+        <div class="art-frame">
+            <img src="https://img.freepik.com/vector-premium/hombre-lindo-robot-cyborg-pistola-dibujos-animados-vector-icono-ilustracion-personas-tecnologia-icono-aislado_138676-8083.jpg" alt="[Cyborg Híbrido Futurista]">
+            <div class="energy-overlay"></div>
+        </div>
+        <div class="card-name-tag tag-bottom">Cyborg</div>
+    </div>
+    <div class="slide-info">
+        <h2>El Cyborg</h2>
+        <p>Un ser híbrido entre humano y máquina, con una parte de su cuerpo mejorada cibernéticamente, representando la fusión entre la biología humana y la tecnología avanzada.</p>
+        <div class="data-panel">
+            <div class="data-item"><label>Valor</label><span>4</span></div>
+        </div>
+    </div>
+</div>
+
+<!-- DIAPOSITIVA: METEORITO -->
+<div class="slide" style="border-color: rgba(255, 215, 0, 0.35);">
+    <div class="playing-card" style="border-color: #ffd700; box-shadow: 0 0 30px rgba(255, 215, 0, 0.45), inset 0 0 50px rgba(255, 179, 71, 0.2);">
+        <div class="card-name-tag tag-top" style="color: #ffd700;">Meteorito</div>
+        <div class="art-frame" style="border-color: rgba(255, 215, 0, 0.35);">
+            <img src="https://static.vecteezy.com/system/resources/previews/024/695/514/non_2x/flying-asteroid-burning-comet-on-background-of-night-sky-dangerous-space-object-astronomical-object-with-tail-design-illustration-vector.jpg" alt="Meteorito incandescente atravesando el vacío">
+            <div class="energy-overlay" style="background: linear-gradient(to bottom, transparent 0%, rgba(255, 215, 0, 0.15) 100%);"></div>
+        </div>
+        <div class="card-name-tag tag-bottom" style="color: #ffd700;">Meteorito</div>
+    </div>
+    <div class="slide-info">
+        <h2 style="color: #ffd700; text-shadow: 0 0 15px rgba(255, 215, 0, 0.6);">El Meteorito</h2>
+        <p>Un fragmento errante del cosmos, cargado de minerales desconocidos y energía cinética devastadora.</p>
+        <div class="data-panel">
+            <div class="data-item" style="border-color: #ffd700;"><label>Valor</label><span>Impacto</span></div>
+            <div class="data-item" style="border-color: #ffd700;"><label>Palo</label><span>Fragmentos Estelares</span></div>
+        </div>
+    </div>
+</div>
+
+<!-- DIAPOSITIVA: SOL -->
+<div class="slide" style="border-color: rgba(255, 215, 0, 0.35);">
+    <div class="playing-card" style="border-color: #ffd700; box-shadow: 0 0 30px rgba(255, 215, 0, 0.45), inset 0 0 50px rgba(255, 140, 0, 0.2);">
+        <div class="card-name-tag tag-top" style="color: #ffd700;">Sol</div>
+        <div class="art-frame" style="border-color: rgba(255, 215, 0, 0.35);">
+            <img src="https://r2.starryai.com/results/1014756769/534fae73-7e6d-4860-b6cf-73a41972e1e7.webp" alt="Sol radiante con corona energética">
+            <div class="energy-overlay" style="background: linear-gradient(to bottom, transparent 0%, rgba(255, 140, 0, 0.2) 100%);"></div>
+        </div>
+        <div class="card-name-tag tag-bottom" style="color: #ffd700;">Sol</div>
+    </div>
+    <div class="slide-info">
+        <h2 style="color: #ffd700; text-shadow: 0 0 15px rgba(255, 215, 0, 0.6);">El Sol</h2>
+        <p>Fuente primordial de luz y plasma, su núcleo alimenta civilizaciones enteras en sistemas remotos.</p>
+        <div class="data-panel">
+            <div class="data-item" style="border-color: #ffd700;"><label>Valor</label><span>Núcleo</span></div>
+            <div class="data-item" style="border-color: #ffd700;"><label>Palo</label><span>Llamas Solares</span></div>
+        </div>
+    </div>
+</div>
+
+<!-- DIAPOSITIVA: LUNA -->
+<div class="slide" style="border-color: rgba(255, 215, 0, 0.35);">
+    <div class="playing-card" style="border-color: #ffd700; box-shadow: 0 0 30px rgba(255, 215, 0, 0.45), inset 0 0 50px rgba(200, 200, 255, 0.2);">
+        <div class="card-name-tag tag-top" style="color: #ffd700;">Luna</div>
+        <div class="art-frame" style="border-color: rgba(255, 215, 0, 0.35);">
+            <img src="https://img.freepik.com/premium-photo/there-is-cartoon-moon-stars-sky-generative-ai_958098-13204.jpg" alt="Luna iluminada sobre un cielo profundo">
+            <div class="energy-overlay" style="background: linear-gradient(to bottom, transparent 0%, rgba(220, 220, 255, 0.18) 100%);"></div>
+        </div>
+        <div class="card-name-tag tag-bottom" style="color: #ffd700;">Luna</div>
+    </div>
+    <div class="slide-info">
+        <h2 style="color: #ffd700; text-shadow: 0 0 15px rgba(255, 215, 0, 0.6);">La Luna</h2>
+        <p>Guardiana de las mareas gravitacionales, refleja secretos antiguos de órbitas y eclipses eternos.</p>
+        <div class="data-panel">
+            <div class="data-item" style="border-color: #ffd700;"><label>Valor</label><span>Órbita</span></div>
+            <div class="data-item" style="border-color: #ffd700;"><label>Palo</label><span>Sombras Celestes</span></div>
+        </div>
+    </div>
+</div>
+
+<!-- DIAPOSITIVA: PLANETA -->
+<div class="slide" style="border-color: rgba(255, 215, 0, 0.35);">
+    <div class="playing-card" style="border-color: #ffd700; box-shadow: 0 0 30px rgba(255, 215, 0, 0.45), inset 0 0 50px rgba(0, 255, 200, 0.18);">
+        <div class="card-name-tag tag-top" style="color: #ffd700;">Planeta</div>
+        <div class="art-frame" style="border-color: rgba(255, 215, 0, 0.35);">
+            <img src="https://thumbs.dreamstime.com/b/vibrant-style-illustration-depicting-planet-saturn-its-iconic-rings-colorful-star-filled-galaxy-cartoon-elements-add-323504745.jpg" alt="Planeta futurista con anillos de energía">
+            <div class="energy-overlay" style="background: linear-gradient(to bottom, transparent 0%, rgba(0, 255, 200, 0.15) 100%);"></div>
+        </div>
+        <div class="card-name-tag tag-bottom" style="color: #ffd700;">Planeta</div>
+    </div>
+    <div class="slide-info">
+        <h2 style="color: #ffd700; text-shadow: 0 0 15px rgba(255, 215, 0, 0.6);">El Planeta</h2>
+        <p>Un mundo desconocido con biomas extremos y atmósferas exóticas, cuna potencial de nuevas especies.</p>
+        <div class="data-panel">
+            <div class="data-item" style="border-color: #ffd700;"><label>Valor</label><span>Mundo</span></div>
+            <div class="data-item" style="border-color: #ffd700;"><label>Palo</label><span>Anillos Cuánticos</span></div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
